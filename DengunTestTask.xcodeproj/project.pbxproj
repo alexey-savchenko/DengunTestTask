@@ -11,6 +11,7 @@
 		028E9DDD20A1F417007C244C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028E9DDC20A1F417007C244C /* ViewController.swift */; };
 		028E9DE220A1F419007C244C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028E9DE120A1F419007C244C /* Assets.xcassets */; };
 		028E9DE520A1F419007C244C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 028E9DE320A1F419007C244C /* LaunchScreen.storyboard */; };
+		801C0D619D7CB071506EE70B /* Pods_DengunTestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2D899A36562B401B769BBA /* Pods_DengunTestTask.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,9 @@
 		028E9DE120A1F419007C244C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		028E9DE420A1F419007C244C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		028E9DE620A1F419007C244C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F114B4F123FBE86F5B49BA0 /* Pods-DengunTestTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DengunTestTask.release.xcconfig"; path = "Pods/Target Support Files/Pods-DengunTestTask/Pods-DengunTestTask.release.xcconfig"; sourceTree = "<group>"; };
+		4C2D899A36562B401B769BBA /* Pods_DengunTestTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DengunTestTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B389A6DFC6FD405A1CE4763 /* Pods-DengunTestTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DengunTestTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DengunTestTask/Pods-DengunTestTask.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				801C0D619D7CB071506EE70B /* Pods_DengunTestTask.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +43,8 @@
 			children = (
 				028E9DD920A1F417007C244C /* DengunTestTask */,
 				028E9DD820A1F417007C244C /* Products */,
+				73F788989AAEFCFFC929BB54 /* Pods */,
+				EADF77ACB42A617D3CD297DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +68,23 @@
 			path = DengunTestTask;
 			sourceTree = "<group>";
 		};
+		73F788989AAEFCFFC929BB54 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9B389A6DFC6FD405A1CE4763 /* Pods-DengunTestTask.debug.xcconfig */,
+				3F114B4F123FBE86F5B49BA0 /* Pods-DengunTestTask.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EADF77ACB42A617D3CD297DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D899A36562B401B769BBA /* Pods_DengunTestTask.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -68,9 +92,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 028E9DE920A1F419007C244C /* Build configuration list for PBXNativeTarget "DengunTestTask" */;
 			buildPhases = (
+				7CCB02B7F30ACFA42E9B1273 /* [CP] Check Pods Manifest.lock */,
 				028E9DD320A1F417007C244C /* Sources */,
 				028E9DD420A1F417007C244C /* Frameworks */,
 				028E9DD520A1F417007C244C /* Resources */,
+				B1E62DC31F567493ACD304FB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,6 +151,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7CCB02B7F30ACFA42E9B1273 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DengunTestTask-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1E62DC31F567493ACD304FB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DengunTestTask/Pods-DengunTestTask-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DengunTestTask/Pods-DengunTestTask-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		028E9DD320A1F417007C244C /* Sources */ = {
@@ -266,15 +331,13 @@
 		};
 		028E9DEA20A1F419007C244C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B389A6DFC6FD405A1CE4763 /* Pods-DengunTestTask.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N35W696BYS;
 				INFOPLIST_FILE = DengunTestTask/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = svch.DengunTestTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -284,15 +347,13 @@
 		};
 		028E9DEB20A1F419007C244C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F114B4F123FBE86F5B49BA0 /* Pods-DengunTestTask.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N35W696BYS;
 				INFOPLIST_FILE = DengunTestTask/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = svch.DengunTestTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
