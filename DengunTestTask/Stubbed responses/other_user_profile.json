@@ -1,0 +1,15 @@
+{
+  "data" : {
+    "points" : 17129,
+    "workouts" : 203,
+    "level" : 10,
+    "birthdate" : "2003-12-12",
+    "bio" : "Wubba lubba",
+    "id" : 13,
+    "num_followers" : 2,
+    "rank_label" : "Newbie",
+    "training_time" : 6036,
+    "full_name" : "Tester A",
+    "training_since" : "2018-01-05",
+  }
+}

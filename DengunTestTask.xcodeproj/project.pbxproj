@@ -11,6 +11,9 @@
 		028E9DDD20A1F417007C244C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028E9DDC20A1F417007C244C /* ViewController.swift */; };
 		028E9DE220A1F419007C244C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028E9DE120A1F419007C244C /* Assets.xcassets */; };
 		028E9DE520A1F419007C244C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 028E9DE320A1F419007C244C /* LaunchScreen.storyboard */; };
+		02F23B4720A1FA1800754EBC /* user_search.json in Resources */ = {isa = PBXBuildFile; fileRef = 02F23B4420A1FA1700754EBC /* user_search.json */; };
+		02F23B4820A1FA1800754EBC /* user_profile.json in Resources */ = {isa = PBXBuildFile; fileRef = 02F23B4520A1FA1800754EBC /* user_profile.json */; };
+		02F23B4920A1FA1800754EBC /* other_user_profile.json in Resources */ = {isa = PBXBuildFile; fileRef = 02F23B4620A1FA1800754EBC /* other_user_profile.json */; };
 		801C0D619D7CB071506EE70B /* Pods_DengunTestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2D899A36562B401B769BBA /* Pods_DengunTestTask.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +24,9 @@
 		028E9DE120A1F419007C244C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		028E9DE420A1F419007C244C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		028E9DE620A1F419007C244C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02F23B4420A1FA1700754EBC /* user_search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_search.json; sourceTree = "<group>"; };
+		02F23B4520A1FA1800754EBC /* user_profile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_profile.json; sourceTree = "<group>"; };
+		02F23B4620A1FA1800754EBC /* other_user_profile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = other_user_profile.json; sourceTree = "<group>"; };
 		3F114B4F123FBE86F5B49BA0 /* Pods-DengunTestTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DengunTestTask.release.xcconfig"; path = "Pods/Target Support Files/Pods-DengunTestTask/Pods-DengunTestTask.release.xcconfig"; sourceTree = "<group>"; };
 		4C2D899A36562B401B769BBA /* Pods_DengunTestTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DengunTestTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B389A6DFC6FD405A1CE4763 /* Pods-DengunTestTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DengunTestTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DengunTestTask/Pods-DengunTestTask.debug.xcconfig"; sourceTree = "<group>"; };
@@ -59,6 +65,7 @@
 		028E9DD920A1F417007C244C /* DengunTestTask */ = {
 			isa = PBXGroup;
 			children = (
+				02F23B4320A1F9F600754EBC /* Stubbed responses */,
 				028E9DDA20A1F417007C244C /* AppDelegate.swift */,
 				028E9DDC20A1F417007C244C /* ViewController.swift */,
 				028E9DE120A1F419007C244C /* Assets.xcassets */,
@@ -66,6 +73,16 @@
 				028E9DE620A1F419007C244C /* Info.plist */,
 			);
 			path = DengunTestTask;
+			sourceTree = "<group>";
+		};
+		02F23B4320A1F9F600754EBC /* Stubbed responses */ = {
+			isa = PBXGroup;
+			children = (
+				02F23B4620A1FA1800754EBC /* other_user_profile.json */,
+				02F23B4520A1FA1800754EBC /* user_profile.json */,
+				02F23B4420A1FA1700754EBC /* user_search.json */,
+			);
+			path = "Stubbed responses";
 			sourceTree = "<group>";
 		};
 		73F788989AAEFCFFC929BB54 /* Pods */ = {
@@ -145,6 +162,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02F23B4820A1FA1800754EBC /* user_profile.json in Resources */,
+				02F23B4720A1FA1800754EBC /* user_search.json in Resources */,
+				02F23B4920A1FA1800754EBC /* other_user_profile.json in Resources */,
 				028E9DE520A1F419007C244C /* LaunchScreen.storyboard in Resources */,
 				028E9DE220A1F419007C244C /* Assets.xcassets in Resources */,
 			);
@@ -337,7 +357,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N35W696BYS;
 				INFOPLIST_FILE = DengunTestTask/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = svch.DengunTestTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -353,7 +376,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N35W696BYS;
 				INFOPLIST_FILE = DengunTestTask/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = svch.DengunTestTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
