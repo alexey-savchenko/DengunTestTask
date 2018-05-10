@@ -22,13 +22,13 @@ class TabIndicatorView: UIView {
   }
 
   // MARK: Properties
-  private let selectionView = UIView()
   private var items = [String]()
   private var itemLabels = [UILabel]()
   private var selectedItemIndex = 0
 
   // MARK: UI
   private let contentStackView = UIStackView()
+  private let selectionView = UIView()
 
   // MARK: Functions
   override func layoutSubviews() {
@@ -47,7 +47,7 @@ class TabIndicatorView: UIView {
       label.backgroundColor = .clear
       label.isUserInteractionEnabled = true
       label.tag = idx
-      
+
       let tapGesture = UITapGestureRecognizer(target: self, action: #selector(itemLabelTap))
       label.addGestureRecognizer(tapGesture)
 
@@ -70,7 +70,9 @@ class TabIndicatorView: UIView {
 
    @objc private func itemLabelTap(_ tapGesture: UITapGestureRecognizer) {
     if let view = tapGesture.view {
-      print(view.tag)
+      selectedItemIndex = view.tag
+      // TODO: Implement selection indicator slide to selectedItemIndex
+
     }
   }
 }
