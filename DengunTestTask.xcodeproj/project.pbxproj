@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0288D05020A468FC00110B48 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288D04F20A468FC00110B48 /* Coordinator.swift */; };
+		0288D05320A4694400110B48 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288D05220A4694400110B48 /* AppCoordinator.swift */; };
 		028E9DDB20A1F417007C244C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028E9DDA20A1F417007C244C /* AppDelegate.swift */; };
 		028E9DDD20A1F417007C244C /* UserHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028E9DDC20A1F417007C244C /* UserHomeController.swift */; };
 		028E9DE220A1F419007C244C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028E9DE120A1F419007C244C /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0288D04F20A468FC00110B48 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		0288D05220A4694400110B48 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		028E9DD720A1F417007C244C /* DengunTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DengunTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		028E9DDA20A1F417007C244C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		028E9DDC20A1F417007C244C /* UserHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeController.swift; sourceTree = "<group>"; };
@@ -44,6 +48,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0288D05120A4693500110B48 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				0288D04F20A468FC00110B48 /* Coordinator.swift */,
+				0288D05220A4694400110B48 /* AppCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		028E9DCE20A1F417007C244C = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +84,7 @@
 				028E9DE120A1F419007C244C /* Assets.xcassets */,
 				028E9DE320A1F419007C244C /* LaunchScreen.storyboard */,
 				028E9DE620A1F419007C244C /* Info.plist */,
+				0288D05120A4693500110B48 /* Coordinators */,
 			);
 			path = DengunTestTask;
 			sourceTree = "<group>";
@@ -216,8 +230,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0288D05320A4694400110B48 /* AppCoordinator.swift in Sources */,
 				028E9DDD20A1F417007C244C /* UserHomeController.swift in Sources */,
 				028E9DDB20A1F417007C244C /* AppDelegate.swift in Sources */,
+				0288D05020A468FC00110B48 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
