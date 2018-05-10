@@ -23,6 +23,9 @@ final class UserHomeController: UIViewController {
   // MARK: UI
   private let userpicImageView = UIImageView()
   private let headerBackgroundImageView = UIImageView()
+  lazy var tabIndicatorView: TabIndicatorView = {
+    return TabIndicatorView(tabItems)
+  }()
 
   // MARK: Properties
   private let tabItems = ["PROFILE", "FOLLOWERS", "NUTRION"]
@@ -50,6 +53,16 @@ final class UserHomeController: UIViewController {
   }
 
   private func setupHeader() {
+    view.addSubview(tabIndicatorView)
+    tabIndicatorView.snp.makeConstraints { (make) in
+      make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+      make.leading.equalToSuperview()
+      make.trailing.equalToSuperview()
+      make.height.equalTo(28)
+    }
+  }
 
+  private func setupTabIndicator() {
+    
   }
 }
