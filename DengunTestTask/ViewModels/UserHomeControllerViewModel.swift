@@ -54,7 +54,9 @@ final class UserHomeControllerViewModel: UserHomeControllerViewModelType {
   }
 
   var profileItemsData: Observable<[ProfileDetailsCollectionViewCellViewModelType]> {
-    return Observable.just([ProfileDetailsCollectionViewCellViewModel(itemsObservable: currentUserData.flatMapLatest(convertUserToProfileItems))])
+    return Observable.just([ProfileDetailsCollectionViewCellViewModel(itemsObservable: currentUserData.flatMapLatest(convertUserToProfileItems)),
+                            ProfileDetailsCollectionViewCellViewModel(itemsObservable: currentUserData.flatMapLatest(convertUserToProfileItems)),
+                            ProfileDetailsCollectionViewCellViewModel(itemsObservable: currentUserData.flatMapLatest(convertUserToProfileItems))])
   }
 
   var tabItems = ["PROFILE", "FOLLOWERS", "NUTRION"]
@@ -72,6 +74,7 @@ final class UserHomeControllerViewModel: UserHomeControllerViewModelType {
       resultArray.append(.workouts(user.workouts))
       resultArray.append(.trainingTime(TimeInterval(user.trainingTime).toString()))
       resultArray.append(.triningSince(user.trainingSince))
+      resultArray.append(.followers(user.numFollowers))
 
       observer.onNext(resultArray)
       return Disposables.create()

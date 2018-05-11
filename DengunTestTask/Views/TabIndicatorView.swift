@@ -9,6 +9,10 @@
 import UIKit
 import SnapKit
 
+protocol TabIndicatorViewDelegate: class {
+  func itemSelected(at index: Int)
+}
+
 final class TabIndicatorView: UIView {
 
   // MARK: Init and deinit
@@ -23,6 +27,7 @@ final class TabIndicatorView: UIView {
   }
 
   // MARK: Properties
+  weak var delegate: TabIndicatorViewDelegate?
   private var items = [String]()
   private var itemLabels = [UILabel]()
   private var selectedItemIndex = 0 {
@@ -91,6 +96,7 @@ final class TabIndicatorView: UIView {
    @objc private func itemLabelTap(_ tapGesture: UITapGestureRecognizer) {
     if let view = tapGesture.view {
       selectedItemIndex = view.tag
+      delegate?.itemSelected(at: selectedItemIndex)
     }
   }
 
@@ -105,5 +111,12 @@ final class TabIndicatorView: UIView {
 
   private func resetFontOnLabel(_ label: UILabel) {
     label.font = UIFont.systemFont(ofSize: 12)
+  }
+
+  public func setItemSelected(_ index: Int) {
+    guard items.count >= index else {
+      return
+    }
+    selectedItemIndex = index
   }
 }

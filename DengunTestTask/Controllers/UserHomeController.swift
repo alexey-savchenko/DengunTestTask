@@ -25,11 +25,18 @@ final class UserHomeController: UIViewController {
   // MARK: UI
   private let headerView = ProfileHeaderView()
   lazy var profileDetailsCollectionView: UICollectionView = {
+
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .horizontal
-    layout.itemSize = CGSize(width: view.bounds.width, height: 200)
+    layout.minimumLineSpacing = 0
+    layout.minimumInteritemSpacing = 0
+
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    collectionView.delegate = self
+    collectionView.isPagingEnabled = true
+    collectionView.bounces = false
     collectionView.backgroundColor = .clear
+
     return collectionView
   }()
 
@@ -127,6 +134,7 @@ final class UserHomeController: UIViewController {
 
   private func setupTabIndicator() {
     view.addSubview(tabIndicatorView)
+    tabIndicatorView.delegate = self
     tabIndicatorView.snp.makeConstraints { (make) in
       make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
       make.leading.equalToSuperview()
@@ -158,5 +166,27 @@ extension UserHomeController: UIImagePickerControllerDelegate, UINavigationContr
   }
   func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
     picker.dismiss(animated: true, completion: nil)
+  }
+}
+
+extension UserHomeController: UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
+  func collectionView(_ collectionView: UICollectionView,
+                      layout collectionViewLayout: UICollectionViewLayout,
+                      sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return collectionView.bounds.size
+  }
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    let currentPage = pageIndexFor(contentOffset: scrollView.contentOffset)
+    tabIndicatorView.setItemSelected(Int(currentPage))
+  }
+  private func pageIndexFor(contentOffset offset: CGPoint) -> Float {
+    return roundf(Float(offset.x / UIScreen.main.bounds.width))
+  }
+}
+
+extension UserHomeController: TabIndicatorViewDelegate {
+  func itemSelected(at index: Int) {
+    profileDetailsCollectionView.setContentOffset(CGPoint(x: CGFloat(index) * profileDetailsCollectionView.bounds.width, y: 0),
+                                                  animated: true)
   }
 }

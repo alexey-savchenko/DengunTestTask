@@ -13,7 +13,7 @@ final class ProfileDetailsCollectionViewCell: UICollectionViewCell {
 
   private let detailsTableView = UITableView()
   private var layoutDone = false
-  private let disposeBag = DisposeBag()
+  private var disposeBag = DisposeBag()
 
   override func layoutSubviews() {
     super.layoutSubviews()
@@ -44,5 +44,9 @@ final class ProfileDetailsCollectionViewCell: UICollectionViewCell {
         cell.configureWith(model)
         return cell
     }.disposed(by: disposeBag)
+  }
+
+  override func prepareForReuse() {
+    disposeBag = DisposeBag()
   }
 }
