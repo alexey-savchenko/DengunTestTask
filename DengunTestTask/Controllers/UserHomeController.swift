@@ -125,10 +125,19 @@ final class UserHomeController: UIViewController {
     viewModel.profileItemsData
       .asDriver(onErrorJustReturn: [])
       .drive(profileDetailsCollectionView.rx.items) { collectionView, row, model in
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileDetailsCollectionViewCell",
-                                                      for: IndexPath(row: row, section: 0)) as! ProfileDetailsCollectionViewCell
-        cell.configureWith(model)
-        return cell
+
+        switch model.type {
+        case .profileDetails:
+          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileDetailsCollectionViewCell",
+                                                        for: IndexPath(row: row, section: 0)) as! ProfileDetailsCollectionViewCell
+          cell.configureWith(model)
+          return cell
+        case .followers:
+          fatalError()
+        case .nutrition:
+          fatalError()
+        }
+
     }.disposed(by: disposeBag)
   }
 

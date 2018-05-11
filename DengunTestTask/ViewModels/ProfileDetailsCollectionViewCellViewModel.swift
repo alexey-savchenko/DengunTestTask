@@ -9,14 +9,44 @@
 import Foundation
 import RxSwift
 
-protocol ProfileDetailsCollectionViewCellViewModelType {
-  var profileItemsObservable: Observable<[ProfileInfoItem]> { get }
+enum ProfileDetailsCollectionViewCellViewModelType {
+  case profileDetails
+  case followers
+  case nutrition
 }
 
-class ProfileDetailsCollectionViewCellViewModel: ProfileDetailsCollectionViewCellViewModelType {
+protocol ProfileDetailsCollectionViewCellViewModelProtocol {
+  var type: ProfileDetailsCollectionViewCellViewModelType { get }
+//  var profileItemsObservable: Observable<[ProfileInfoItem]> { get }
+}
+
+class ProfileDetailsCollectionViewCellViewModel: ProfileDetailsCollectionViewCellViewModelProtocol {
+  var type: ProfileDetailsCollectionViewCellViewModelType = .profileDetails
+
   var profileItemsObservable: Observable<[ProfileInfoItem]>
 
   init(itemsObservable: Observable<[ProfileInfoItem]>) {
     profileItemsObservable = itemsObservable
   }
 }
+
+class FollowersCollectionViewCellViewModel: ProfileDetailsCollectionViewCellViewModelProtocol {
+  var type: ProfileDetailsCollectionViewCellViewModelType = .followers
+
+  var followersItemsObservable: Observable<[SearchQueryItem]>
+
+  init(itemsObservable: Observable<[SearchQueryItem]>) {
+    followersItemsObservable = itemsObservable
+  }
+}
+
+class NutritionCollectionViewCellViewModel: ProfileDetailsCollectionViewCellViewModelProtocol {
+  var type: ProfileDetailsCollectionViewCellViewModelType = .nutrition
+
+  var followersItemsObservable: Observable<[NutritionDataItem]>
+
+  init(itemsObservable: Observable<[NutritionDataItem]>) {
+    followersItemsObservable = itemsObservable
+  }
+}
+

@@ -37,6 +37,8 @@ class MockFetchService: FetchService {
   func getFollowers() -> Observable<[SearchQueryItem]> {
     return Observable.create { observer in
 
+      
+
       return Disposables.create()
     }
   }

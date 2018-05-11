@@ -37,13 +37,15 @@ final class ProfileDetailsCollectionViewCell: UICollectionViewCell {
     layoutDone = true
   }
 
-  func configureWith(_ viewModel: ProfileDetailsCollectionViewCellViewModelType) {
-    viewModel.profileItemsObservable
-      .asDriver(onErrorJustReturn: []).drive(detailsTableView.rx.items) { tableView, row, model in
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileDetailsTableViewCell") as! ProfileDetailsTableViewCell
-        cell.configureWith(model)
-        return cell
-    }.disposed(by: disposeBag)
+  func configureWith(_ viewModel: ProfileDetailsCollectionViewCellViewModelProtocol) {
+    if let viewModel = viewModel as? ProfileDetailsCollectionViewCellViewModel {
+      viewModel.profileItemsObservable
+        .asDriver(onErrorJustReturn: []).drive(detailsTableView.rx.items) { tableView, row, model in
+          let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileDetailsTableViewCell") as! ProfileDetailsTableViewCell
+          cell.configureWith(model)
+          return cell
+        }.disposed(by: disposeBag)
+    }
   }
 
   override func prepareForReuse() {

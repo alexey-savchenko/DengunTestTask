@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02624D5F20A5D6380053399E /* FollowersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02624D5E20A5D6380053399E /* FollowersCollectionViewCell.swift */; };
+		02624D6120A5DE6D0053399E /* NutrionDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02624D6020A5DE6D0053399E /* NutrionDataItem.swift */; };
 		0288D05020A468FC00110B48 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288D04F20A468FC00110B48 /* Coordinator.swift */; };
 		0288D05320A4694400110B48 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288D05220A4694400110B48 /* AppCoordinator.swift */; };
 		0288D05520A46B2700110B48 /* UserHomeControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288D05420A46B2700110B48 /* UserHomeControllerViewModel.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		02624D5E20A5D6380053399E /* FollowersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCollectionViewCell.swift; sourceTree = "<group>"; };
+		02624D6020A5DE6D0053399E /* NutrionDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrionDataItem.swift; sourceTree = "<group>"; };
 		0288D04F20A468FC00110B48 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0288D05220A4694400110B48 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0288D05420A46B2700110B48 /* UserHomeControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeControllerViewModel.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				0288D05A20A4774E00110B48 /* SearchQueryUser.swift */,
 				02B4899320A581B40075FCEC /* ProfileInfoItem.swift */,
 				02B4899A20A59FBF0075FCEC /* CustomError.swift */,
+				02624D6020A5DE6D0053399E /* NutrionDataItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				02B4899B20A59FBF0075FCEC /* CustomError.swift in Sources */,
 				028E9DDD20A1F417007C244C /* UserHomeController.swift in Sources */,
 				0288D05B20A4774E00110B48 /* SearchQueryUser.swift in Sources */,
+				02624D6120A5DE6D0053399E /* NutrionDataItem.swift in Sources */,
 				02B489A620A5C6810075FCEC /* ProfileDetailsCollectionViewCellViewModel.swift in Sources */,
 				0288D05720A46DC400110B48 /* CurrentUser.swift in Sources */,
 				02624D5F20A5D6380053399E /* FollowersCollectionViewCell.swift in Sources */,
