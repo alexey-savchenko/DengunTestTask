@@ -28,14 +28,19 @@ final class UserHomeControllerViewModel: UserHomeControllerViewModelType {
     service = fetchService
 
     userpicSelected
-      .subscribe(userPicsubject)
+      .do(onNext: saveImage)
+      .observeOn(MainScheduler.instance)
+      .subscribe(userpicSubject)
       .disposed(by: disposeBag)
   }
 
   // Properties
   private let service: FetchService
   private let disposeBag = DisposeBag()
-  private let userPicsubject = BehaviorSubject<UIImage>(value: #imageLiteral(resourceName: "default-user-avatar"))
+//  private let userpicSubject = BehaviorSubject<UIImage>(value: #imageLiteral(resourceName: "default-user-avatar"))
+  lazy var userpicSubject: BehaviorSubject<UIImage> = {
+    return BehaviorSubject<UIImage>(value: getLocalImage() ?? #imageLiteral(resourceName: "default-user-avatar"))
+  }()
 
   // Outputs
   var currentUserData: Observable<CurrentUser> {
@@ -45,7 +50,7 @@ final class UserHomeControllerViewModel: UserHomeControllerViewModelType {
     return currentUserData.flatMapLatest(convertUserToProfileItems)
   }
   var profileImage: Observable<UIImage> {
-    return userPicsubject.asObservable()
+    return userpicSubject.asObservable()
   }
 
   var tabItems = ["PROFILE", "FOLLOWERS", "NUTRION"]
@@ -66,6 +71,29 @@ final class UserHomeControllerViewModel: UserHomeControllerViewModelType {
 
       observer.onNext(resultArray)
       return Disposables.create()
+    }
+  }
+
+  private func getLocalImage() -> UIImage? {
+    let targetURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true).appendingPathComponent("userpic.jpg")
+    let data = try? Data(contentsOf: targetURL)
+    if let imageData = data {
+      return UIImage(data: imageData)
+    } else {
+      return nil
+    }
+  }
+
+  private func saveImage(_ image: UIImage) {
+    DispatchQueue.global().async {
+      if let imageData = UIImageJPEGRepresentation(image, 0.8) {
+        let targetURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true).appendingPathComponent("userpic.jpg")
+        do {
+          try imageData.write(to: targetURL)
+        } catch {
+          print(error)
+        }
+      }
     }
   }
 }
