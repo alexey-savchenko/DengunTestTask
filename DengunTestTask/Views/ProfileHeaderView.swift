@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class ProfileHeaderView: UIView {
+final class ProfileHeaderView: UIView {
 
   let userpicSubject = PublishSubject<UIImage>()
   let userpicTap = PublishSubject<UITapGestureRecognizer>()

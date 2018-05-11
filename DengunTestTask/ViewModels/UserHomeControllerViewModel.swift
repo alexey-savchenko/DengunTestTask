@@ -17,8 +17,9 @@ protocol UserHomeControllerViewModelType {
   // Outputs
   var tabItems: [String] { get }
   var currentUserData: Observable<CurrentUser> { get }
-  var profileItemsData: Observable<[ProfileInfoItem]> { get }
+//  var profileItemsData: Observable<[ProfileInfoItem]> { get }
   var profileImage: Observable<UIImage> { get }
+  var profileItemsData: Observable<[ProfileDetailsCollectionViewCellViewModelType]> { get }
 }
 
 final class UserHomeControllerViewModel: UserHomeControllerViewModelType {
@@ -45,11 +46,15 @@ final class UserHomeControllerViewModel: UserHomeControllerViewModelType {
   var currentUserData: Observable<CurrentUser> {
     return service.getCurrentUser()
   }
-  var profileItemsData: Observable<[ProfileInfoItem]> {
-    return currentUserData.flatMapLatest(convertUserToProfileItems)
-  }
+//  var profileItemsData: Observable<[ProfileInfoItem]> {
+//    return currentUserData.flatMapLatest(convertUserToProfileItems)
+//  }
   var profileImage: Observable<UIImage> {
     return userpicSubject.asObservable()
+  }
+
+  var profileItemsData: Observable<[ProfileDetailsCollectionViewCellViewModelType]> {
+    return Observable.just([ProfileDetailsCollectionViewCellViewModel(itemsObservable: currentUserData.flatMapLatest(convertUserToProfileItems))])
   }
 
   var tabItems = ["PROFILE", "FOLLOWERS", "NUTRION"]

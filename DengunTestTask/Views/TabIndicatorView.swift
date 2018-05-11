@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class TabIndicatorView: UIView {
+final class TabIndicatorView: UIView {
 
   // MARK: Init and deinit
   init(_ items: [String]) {

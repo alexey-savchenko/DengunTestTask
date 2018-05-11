@@ -24,7 +24,15 @@ final class UserHomeController: UIViewController {
 
   // MARK: UI
   private let headerView = ProfileHeaderView()
-  
+  lazy var profileDetailsCollectionView: UICollectionView = {
+    let layout = UICollectionViewFlowLayout()
+    layout.scrollDirection = .horizontal
+    layout.itemSize = CGSize(width: view.bounds.width, height: 200)
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    collectionView.backgroundColor = .clear
+    return collectionView
+  }()
+
   lazy var tabIndicatorView: TabIndicatorView = {
     return TabIndicatorView(viewModel.tabItems)
   }()
@@ -46,6 +54,7 @@ final class UserHomeController: UIViewController {
     view.backgroundColor = UIColor.darkGray
     setupNavigationBarItems()
     setupHeader()
+    setupProfileDetailsCollectionView()
   }
 
   private func setupNavigationBarItems() {
@@ -65,9 +74,6 @@ final class UserHomeController: UIViewController {
       make.trailing.equalToSuperview()
       make.height.equalTo(200)
     }
-
-    headerView.usernameLabel.text = "Test"
-    headerView.userTitleLabel.text = "Test"
 
     headerView.userpicTap.subscribe(onNext: { [unowned self] _ in
       let prompt = UIAlertController(title: "Choose an option", message: nil, preferredStyle: .actionSheet)
@@ -103,7 +109,20 @@ final class UserHomeController: UIViewController {
     viewModel.currentUserData.subscribe(onNext: { [unowned headerView = headerView] user in
       headerView.userTitleLabel.text = user.bio
       headerView.usernameLabel.text = user.fullName
+      }, onError: { [unowned self] error in
+        self.presentError(error.localizedDescription)
+        self.headerView.userTitleLabel.text = "Unknown"
+        self.headerView.usernameLabel.text = "Unknown"
     }).disposed(by: disposeBag)
+
+    viewModel.profileItemsData
+      .asDriver(onErrorJustReturn: [])
+      .drive(profileDetailsCollectionView.rx.items) { collectionView, row, model in
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileDetailsCollectionViewCell",
+                                                      for: IndexPath(row: row, section: 0)) as! ProfileDetailsCollectionViewCell
+        cell.configureWith(model)
+        return cell
+    }.disposed(by: disposeBag)
   }
 
   private func setupTabIndicator() {
@@ -114,6 +133,18 @@ final class UserHomeController: UIViewController {
       make.trailing.equalToSuperview()
       make.height.equalTo(28)
     }
+  }
+
+  private func setupProfileDetailsCollectionView() {
+    view.addSubview(profileDetailsCollectionView)
+    profileDetailsCollectionView.snp.makeConstraints { (make) in
+      make.top.equalTo(headerView.snp.bottom)
+      make.leading.equalToSuperview()
+      make.trailing.equalToSuperview()
+      make.bottom.equalToSuperview()
+    }
+    profileDetailsCollectionView.register(ProfileDetailsCollectionViewCell.self,
+                                          forCellWithReuseIdentifier: "ProfileDetailsCollectionViewCell")
   }
 }
 
