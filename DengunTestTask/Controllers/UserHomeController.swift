@@ -37,12 +37,13 @@ final class UserHomeController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    view.backgroundColor = UIColor.darkGray
     configureUI()
+    setupBindings()
   }
 
   // MARK: Functions
   private func configureUI() {
+    view.backgroundColor = UIColor.darkGray
     setupNavigationBarItems()
     setupHeader()
   }
@@ -66,18 +67,36 @@ final class UserHomeController: UIViewController {
     }
     headerView.usernameLabel.text = "Test"
     headerView.userTitleLabel.text = "Test"
-    headerView.userpic = #imageLiteral(resourceName: "settings")
     headerView.userpicTap.subscribe(onNext: { [unowned self] _ in
       let prompt = UIAlertController(title: "Choose an option", message: nil, preferredStyle: .actionSheet)
+
       prompt.addAction(UIAlertAction(title: "Take a photo", style: .default, handler: { (_) in
-        // TODO: Implement
+        let picker = UIImagePickerController()
+        picker.sourceType = UIImagePickerControllerSourceType.camera
+        picker.cameraCaptureMode = .photo
+        picker.showsCameraControls = true
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
       }))
+
       prompt.addAction(UIAlertAction(title: "Choose a picture", style: .default, handler: { (_) in
-        // TODO: Implement
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = false
+        picker.sourceType = .photoLibrary
+        self.present(picker, animated: true, completion: nil)
       }))
-      prompt.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+
+      prompt.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
       self.present(prompt, animated: true, completion: nil)
     }).disposed(by: disposeBag)
+
+  }
+
+  func setupBindings() {
+    viewModel.profileImage
+      .subscribe(headerView.userpicSubject)
+      .disposed(by: disposeBag)
   }
 
   private func setupTabIndicator() {
@@ -88,5 +107,18 @@ final class UserHomeController: UIViewController {
       make.trailing.equalToSuperview()
       make.height.equalTo(28)
     }
+  }
+}
+
+extension UserHomeController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  func imagePickerController(_ picker: UIImagePickerController,
+                             didFinishPickingMediaWithInfo info: [String : Any]) {
+    if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+      viewModel.userpicSelected.onNext(pickedImage)
+      picker.dismiss(animated: true, completion: nil)
+    }
+  }
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    picker.dismiss(animated: true, completion: nil)
   }
 }

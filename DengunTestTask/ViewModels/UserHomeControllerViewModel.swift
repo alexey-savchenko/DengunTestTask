@@ -8,14 +8,17 @@
 
 import Foundation
 import RxSwift
+import UIKit
 
 protocol UserHomeControllerViewModelType {
   // Inputs
+  var userpicSelected: PublishSubject<UIImage> { get }
 
   // Outputs
   var tabItems: [String] { get }
   var currentUserData: Observable<CurrentUser> { get }
   var profileItemsData: Observable<[ProfileInfoItem]> { get }
+  var profileImage: Observable<UIImage> { get }
 }
 
 final class UserHomeControllerViewModel: UserHomeControllerViewModelType {
@@ -23,9 +26,17 @@ final class UserHomeControllerViewModel: UserHomeControllerViewModelType {
   // MARK: Init and deinit
   init(_ fetchService: FetchService) {
     service = fetchService
+
+    userpicSelected
+      .subscribe(userPicsubject)
+      .disposed(by: disposeBag)
   }
 
   // Properties
+  private let service: FetchService
+  private let disposeBag = DisposeBag()
+  private let userPicsubject = BehaviorSubject<UIImage>(value: #imageLiteral(resourceName: "default-user-avatar"))
+
   // Outputs
   var currentUserData: Observable<CurrentUser> {
     return service.getCurrentUser()
@@ -33,8 +44,14 @@ final class UserHomeControllerViewModel: UserHomeControllerViewModelType {
   var profileItemsData: Observable<[ProfileInfoItem]> {
     return currentUserData.flatMapLatest(convertUserToProfileItems)
   }
+  var profileImage: Observable<UIImage> {
+    return userPicsubject.asObservable()
+  }
+
   var tabItems = ["PROFILE", "FOLLOWERS", "NUTRION"]
-  let service: FetchService
+
+  // Inputs
+  var userpicSelected = PublishSubject<UIImage>()
 
   private func convertUserToProfileItems(_ user: CurrentUser) -> Observable<[ProfileInfoItem]> {
     return Observable.create { observer in

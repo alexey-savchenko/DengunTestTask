@@ -12,20 +12,15 @@ import RxSwift
 
 class ProfileHeaderView: UIView {
 
+  let userpicSubject = PublishSubject<UIImage>()
   let userpicTap = PublishSubject<UITapGestureRecognizer>()
   let usernameLabel = UILabel()
   let userTitleLabel = UILabel()
   private let userpicImageView = UIImageView()
   private let backgroundImageView = UIImageView()
-  private let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+  private let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
   private let contentStackView = UIStackView()
   private let disposeBag = DisposeBag()
-  var userpic = UIImage() {
-    didSet {
-      userpicImageView.image = userpic
-      backgroundImageView.image = userpic
-    }
-  }
 
   init() {
     super.init(frame: .zero)
@@ -52,6 +47,11 @@ class ProfileHeaderView: UIView {
     [userpicImageView, usernameLabel, userTitleLabel].forEach { contentStackView.addArrangedSubview($0) }
     configureImageViews()
     configureLabels()
+
+    userpicSubject.subscribe(onNext: { [unowned self] image in
+      self.backgroundImageView.image = image
+      self.userpicImageView.image = image
+    }).disposed(by: disposeBag)
   }
 
   private func configureImageViews() {
