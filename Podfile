@@ -8,5 +8,6 @@ target 'DengunTestTask' do
   pod 'SnapKit'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'SwiftyJSON'
   
 end
