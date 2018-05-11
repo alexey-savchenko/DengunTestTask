@@ -36,7 +36,7 @@ final class UserHomeController: UIViewController {
     collectionView.isPagingEnabled = true
     collectionView.bounces = false
     collectionView.backgroundColor = .clear
-
+    collectionView.allowsSelection = false
     return collectionView
   }()
 
