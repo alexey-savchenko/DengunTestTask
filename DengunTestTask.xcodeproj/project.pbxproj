@@ -23,6 +23,7 @@
 		02B4899420A581B40075FCEC /* ProfileInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4899320A581B40075FCEC /* ProfileInfoItem.swift */; };
 		02B4899620A585FF0075FCEC /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4899520A585FF0075FCEC /* TimeInterval+Extensions.swift */; };
 		02B4899820A588590075FCEC /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4899720A588590075FCEC /* ProfileHeaderView.swift */; };
+		02B4899B20A59FBF0075FCEC /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4899A20A59FBF0075FCEC /* CustomError.swift */; };
 		02F23B4720A1FA1800754EBC /* user_search.json in Resources */ = {isa = PBXBuildFile; fileRef = 02F23B4420A1FA1700754EBC /* user_search.json */; };
 		02F23B4820A1FA1800754EBC /* user_profile.json in Resources */ = {isa = PBXBuildFile; fileRef = 02F23B4520A1FA1800754EBC /* user_profile.json */; };
 		02F23B4920A1FA1800754EBC /* other_user_profile.json in Resources */ = {isa = PBXBuildFile; fileRef = 02F23B4620A1FA1800754EBC /* other_user_profile.json */; };
@@ -48,6 +49,7 @@
 		02B4899320A581B40075FCEC /* ProfileInfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoItem.swift; sourceTree = "<group>"; };
 		02B4899520A585FF0075FCEC /* TimeInterval+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extensions.swift"; sourceTree = "<group>"; };
 		02B4899720A588590075FCEC /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		02B4899A20A59FBF0075FCEC /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		02F23B4420A1FA1700754EBC /* user_search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_search.json; sourceTree = "<group>"; };
 		02F23B4520A1FA1800754EBC /* user_profile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_profile.json; sourceTree = "<group>"; };
 		02F23B4620A1FA1800754EBC /* other_user_profile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = other_user_profile.json; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				0288D05820A46FBC00110B48 /* OtherUser.swift */,
 				0288D05A20A4774E00110B48 /* SearchQueryUser.swift */,
 				02B4899320A581B40075FCEC /* ProfileInfoItem.swift */,
+				02B4899A20A59FBF0075FCEC /* CustomError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -150,10 +153,10 @@
 				0288D05D20A4786200110B48 /* ViewModels */,
 				0288D05C20A4785900110B48 /* Models */,
 				0288D06320A4817E00110B48 /* Views */,
+				02B4899920A59F160075FCEC /* Services */,
 				028E9DE120A1F419007C244C /* Assets.xcassets */,
 				028E9DE320A1F419007C244C /* LaunchScreen.storyboard */,
 				028E9DE620A1F419007C244C /* Info.plist */,
-				02B4899120A57EB10075FCEC /* Services.swift */,
 			);
 			path = DengunTestTask;
 			sourceTree = "<group>";
@@ -165,6 +168,14 @@
 				02B4899520A585FF0075FCEC /* TimeInterval+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		02B4899920A59F160075FCEC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				02B4899120A57EB10075FCEC /* Services.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		02F23B4320A1F9F600754EBC /* Stubbed responses */ = {
@@ -331,6 +342,7 @@
 				0288D05320A4694400110B48 /* AppCoordinator.swift in Sources */,
 				02B4899220A57EB10075FCEC /* Services.swift in Sources */,
 				0288D05920A46FBC00110B48 /* OtherUser.swift in Sources */,
+				02B4899B20A59FBF0075FCEC /* CustomError.swift in Sources */,
 				028E9DDD20A1F417007C244C /* UserHomeController.swift in Sources */,
 				0288D05B20A4774E00110B48 /* SearchQueryUser.swift in Sources */,
 				0288D05720A46DC400110B48 /* CurrentUser.swift in Sources */,

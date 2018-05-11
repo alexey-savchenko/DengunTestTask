@@ -37,7 +37,6 @@ final class UserHomeControllerViewModel: UserHomeControllerViewModelType {
   // Properties
   private let service: FetchService
   private let disposeBag = DisposeBag()
-//  private let userpicSubject = BehaviorSubject<UIImage>(value: #imageLiteral(resourceName: "default-user-avatar"))
   lazy var userpicSubject: BehaviorSubject<UIImage> = {
     return BehaviorSubject<UIImage>(value: getLocalImage() ?? #imageLiteral(resourceName: "default-user-avatar"))
   }()

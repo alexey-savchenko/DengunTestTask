@@ -65,8 +65,10 @@ final class UserHomeController: UIViewController {
       make.trailing.equalToSuperview()
       make.height.equalTo(200)
     }
+
     headerView.usernameLabel.text = "Test"
     headerView.userTitleLabel.text = "Test"
+
     headerView.userpicTap.subscribe(onNext: { [unowned self] _ in
       let prompt = UIAlertController(title: "Choose an option", message: nil, preferredStyle: .actionSheet)
 
@@ -97,6 +99,11 @@ final class UserHomeController: UIViewController {
     viewModel.profileImage
       .subscribe(headerView.userpicSubject)
       .disposed(by: disposeBag)
+
+    viewModel.currentUserData.subscribe(onNext: { [unowned headerView = headerView] user in
+      headerView.userTitleLabel.text = user.bio
+      headerView.usernameLabel.text = user.fullName
+    }).disposed(by: disposeBag)
   }
 
   private func setupTabIndicator() {

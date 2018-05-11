@@ -17,7 +17,19 @@ protocol FetchService {
 class MockFetchService: FetchService {
   func getCurrentUser() -> Observable<CurrentUser> {
     return Observable.create { observer in
-      
+
+      if let jsonURL = Bundle.main.url(forResource: "user_profile", withExtension: "json", subdirectory: nil, localization: nil),
+        let jsonData = try? Data(contentsOf: jsonURL) {
+        do {
+          let currentUser = try JSONDecoder().decode(CurrentUser.self, from: jsonData)
+          observer.onNext(currentUser)
+        } catch {
+          observer.onError(CustomError(value: "Unable to decode JSON."))
+          print(error)
+        }
+      } else {
+        observer.onError(CustomError(value: "Unable to read local JSON data."))
+      }
       return Disposables.create()
     }
   }

@@ -1,27 +1,27 @@
 {
-  "data" : {
-    "points" : 1796,
-    "workouts" : 109,
-    "level" : 2,
-    "bio" : "I am the best!",
-    "id" : 319,
-    "num_followers" : 3,
-    "rank_label" : "Newbie",
-    "training_time" : 3237,
-    "city" : "Olhao",
-    "full_name" : "Test User",
-    "training_since" : "2018-01-11",
-    "nutrition" : {
-      "water_max" : "1.60",
-      "daily_caloric_needs" : 1950,
-      "goal" : "Weight Maintenance",
-      "id" : 208,
-      "protein" : 110,
-      "fat" : 50,
-      "water_min" : "1.40",
-      "user" : 319,
-      "weight" : "50.0",
-      "carbs" : 265,
-      "goal_label" : "Weight Maintenance"
+  "points" : 1796,
+  "workouts" : 109,
+  "level" : 2,
+  "bio" : "I am the best!",
+  "id" : 319,
+  "num_followers" : 3,
+  "rank_label" : "Newbie",
+  "training_time" : 3237,
+  "city" : "Olhao",
+  "full_name" : "Test User",
+  "training_since" : "2018-01-11",
+  "nutrition" : {
+    "water_max" : "1.60",
+    "daily_caloric_needs" : 1950,
+    "goal" : "Weight Maintenance",
+    "id" : 208,
+    "protein" : 110,
+    "fat" : 50,
+    "water_min" : "1.40",
+    "user" : 319,
+    "weight" : "50.0",
+    "carbs" : 265,
+    "goal_label" : "Weight Maintenance"
   }
 }
+
