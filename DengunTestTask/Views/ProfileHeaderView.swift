@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class ProfileHeaderView: UIView {
 
+  let userpicTap = PublishSubject<UITapGestureRecognizer>()
   let usernameLabel = UILabel()
   let userTitleLabel = UILabel()
   private let userpicImageView = UIImageView()
   private let backgroundImageView = UIImageView()
   private let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
   private let contentStackView = UIStackView()
+  private let disposeBag = DisposeBag()
   var userpic = UIImage() {
     didSet {
       userpicImageView.image = userpic
@@ -61,6 +65,14 @@ class ProfileHeaderView: UIView {
       make.height.equalTo(80)
       make.width.equalTo(80)
     }
+    userpicImageView.isUserInteractionEnabled = true
+
+    let tapGesture = UITapGestureRecognizer()
+    userpicImageView.addGestureRecognizer(tapGesture)
+
+    tapGesture.rx.event
+      .subscribe(userpicTap)
+      .disposed(by: disposeBag)
   }
 
   private func configureLabels() {

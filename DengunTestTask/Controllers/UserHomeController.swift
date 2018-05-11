@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class UserHomeController: UIViewController {
 
@@ -29,6 +31,7 @@ final class UserHomeController: UIViewController {
 
   // MARK: Properties
   private let viewModel: UserHomeControllerViewModelType
+  private let disposeBag = DisposeBag()
 
   // MARK: Lifecycle
   override func viewDidLoad() {
@@ -64,6 +67,17 @@ final class UserHomeController: UIViewController {
     headerView.usernameLabel.text = "Test"
     headerView.userTitleLabel.text = "Test"
     headerView.userpic = #imageLiteral(resourceName: "settings")
+    headerView.userpicTap.subscribe(onNext: { [unowned self] _ in
+      let prompt = UIAlertController(title: "Choose an option", message: nil, preferredStyle: .actionSheet)
+      prompt.addAction(UIAlertAction(title: "Take a photo", style: .default, handler: { (_) in
+        // TODO: Implement
+      }))
+      prompt.addAction(UIAlertAction(title: "Choose a picture", style: .default, handler: { (_) in
+        // TODO: Implement
+      }))
+      prompt.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+      self.present(prompt, animated: true, completion: nil)
+    }).disposed(by: disposeBag)
   }
 
   private func setupTabIndicator() {
