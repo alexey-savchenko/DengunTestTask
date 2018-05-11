@@ -18,6 +18,7 @@
 		028E9DDD20A1F417007C244C /* UserHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028E9DDC20A1F417007C244C /* UserHomeController.swift */; };
 		028E9DE220A1F419007C244C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028E9DE120A1F419007C244C /* Assets.xcassets */; };
 		028E9DE520A1F419007C244C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 028E9DE320A1F419007C244C /* LaunchScreen.storyboard */; };
+		02B4898D20A5761F0075FCEC /* UIColor+HEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4898C20A5761F0075FCEC /* UIColor+HEX.swift */; };
 		02F23B4720A1FA1800754EBC /* user_search.json in Resources */ = {isa = PBXBuildFile; fileRef = 02F23B4420A1FA1700754EBC /* user_search.json */; };
 		02F23B4820A1FA1800754EBC /* user_profile.json in Resources */ = {isa = PBXBuildFile; fileRef = 02F23B4520A1FA1800754EBC /* user_profile.json */; };
 		02F23B4920A1FA1800754EBC /* other_user_profile.json in Resources */ = {isa = PBXBuildFile; fileRef = 02F23B4620A1FA1800754EBC /* other_user_profile.json */; };
@@ -38,6 +39,7 @@
 		028E9DE120A1F419007C244C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		028E9DE420A1F419007C244C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		028E9DE620A1F419007C244C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02B4898C20A5761F0075FCEC /* UIColor+HEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEX.swift"; sourceTree = "<group>"; };
 		02F23B4420A1FA1700754EBC /* user_search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_search.json; sourceTree = "<group>"; };
 		02F23B4520A1FA1800754EBC /* user_profile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_profile.json; sourceTree = "<group>"; };
 		02F23B4620A1FA1800754EBC /* other_user_profile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = other_user_profile.json; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		0288D06420A4818A00110B48 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				02B4898E20A5762E0075FCEC /* Extensions */,
 				02F23B4320A1F9F600754EBC /* Stubbed responses */,
 				028E9DDA20A1F417007C244C /* AppDelegate.swift */,
 			);
@@ -142,6 +145,14 @@
 				028E9DE620A1F419007C244C /* Info.plist */,
 			);
 			path = DengunTestTask;
+			sourceTree = "<group>";
+		};
+		02B4898E20A5762E0075FCEC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				02B4898C20A5761F0075FCEC /* UIColor+HEX.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		02F23B4320A1F9F600754EBC /* Stubbed responses */ = {
@@ -304,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0288D06220A4817900110B48 /* TabIndicatorView.swift in Sources */,
+				02B4898D20A5761F0075FCEC /* UIColor+HEX.swift in Sources */,
 				0288D05320A4694400110B48 /* AppCoordinator.swift in Sources */,
 				0288D05920A46FBC00110B48 /* OtherUser.swift in Sources */,
 				028E9DDD20A1F417007C244C /* UserHomeController.swift in Sources */,

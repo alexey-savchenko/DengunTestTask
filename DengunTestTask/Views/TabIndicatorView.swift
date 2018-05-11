@@ -15,6 +15,7 @@ class TabIndicatorView: UIView {
   init(_ items: [String]) {
     super.init(frame: .zero)
     configure(with: items)
+
   }
 
   required init?(coder aDecoder: NSCoder) {
@@ -24,18 +25,18 @@ class TabIndicatorView: UIView {
   // MARK: Properties
   private var items = [String]()
   private var itemLabels = [UILabel]()
-  private var selectedItemIndex = 0
+  private var selectedItemIndex = 0 {
+    didSet {
+      selectedItem(at: selectedItemIndex)
+    }
+  }
+  private var tabSelectionViewInitLayoutDone = false
 
   // MARK: UI
   private let contentStackView = UIStackView()
-  private let selectionView = UIView()
+  private let tabSelectionMarkerView = UIView()
 
   // MARK: Functions
-  override func layoutSubviews() {
-    super.layoutSubviews()
-
-  }
-
   private func configure(with items: [String]) {
     self.items = items
     itemLabels = items.enumerated().map { idx, item in
@@ -55,7 +56,9 @@ class TabIndicatorView: UIView {
     }
 
     configureStackView()
+    setupSelectionView()
     backgroundColor = UIColor.darkGray
+    selectedItemIndex = 0
   }
 
   private func configureStackView() {
@@ -68,11 +71,33 @@ class TabIndicatorView: UIView {
     itemLabels.forEach { contentStackView.addArrangedSubview($0) }
   }
 
+  private func setupSelectionView() {
+    addSubview(tabSelectionMarkerView)
+    tabSelectionMarkerView.snp.makeConstraints { (make) in
+      make.edges.equalTo(itemLabels.first!.snp.edges)
+    }
+    sendSubview(toBack: tabSelectionMarkerView)
+    tabSelectionMarkerView.layer.backgroundColor = UIColor(hexString: "189e02").cgColor
+    tabSelectionMarkerView.layer.setAffineTransform(shearTransform(x: 0.5, y: 0))
+  }
+
+  private func shearTransform(x: CGFloat, y: CGFloat) -> CGAffineTransform {
+    var transform = CGAffineTransform(scaleX: 1.1, y: 1)
+    transform.c = -x
+    transform.b = y
+    return transform
+  }
+
    @objc private func itemLabelTap(_ tapGesture: UITapGestureRecognizer) {
     if let view = tapGesture.view {
       selectedItemIndex = view.tag
-      // TODO: Implement selection indicator slide to selectedItemIndex
-
     }
+  }
+
+  private func selectedItem(at index: Int) {
+    UIView.animate(withDuration: 0.2) {
+      self.tabSelectionMarkerView.center = self.itemLabels[index].center
+    }
+
   }
 }
