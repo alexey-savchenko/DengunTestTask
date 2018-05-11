@@ -38,7 +38,7 @@ class MockFetchService: FetchService {
   func getFollowers() -> Observable<[SearchQueryItem]> {
     return Observable.create { observer in
 
-      if let jsonURL = Bundle.main.url(forResource: "user_profile", withExtension: "json", subdirectory: nil, localization: nil),
+      if let jsonURL = Bundle.main.url(forResource: "user_search", withExtension: "json", subdirectory: nil, localization: nil),
         let jsonData = try? Data(contentsOf: jsonURL),
         let json = try? JSON(data: jsonData) {
 

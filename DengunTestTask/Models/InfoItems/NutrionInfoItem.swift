@@ -43,7 +43,7 @@ enum NutritionInfoItem: InfoItem {
     case .goal(let value):
       return value
     case .weight(let value):
-      return value
+      return "\(value) kg"
     case .dailyCaloricNeeds(let value):
       return "\(value) kcals"
     case .protein(let value):

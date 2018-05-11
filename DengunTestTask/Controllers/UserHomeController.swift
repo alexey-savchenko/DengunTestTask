@@ -132,7 +132,9 @@ final class UserHomeController: UIViewController {
           cell.configureWith(model)
           return cell
         case .followers:
-          fatalError()
+          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FollowersCollectionViewCell", for: IndexPath(row: row, section: 0)) as! FollowersCollectionViewCell
+          cell.configureWith(model)
+          return cell
         case .nutrition:
           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileDetailsCollectionViewCell",
                                                         for: IndexPath(row: row, section: 0)) as! ProfileDetailsCollectionViewCell
@@ -164,6 +166,9 @@ final class UserHomeController: UIViewController {
     }
     profileDetailsCollectionView.register(ProfileDetailsCollectionViewCell.self,
                                           forCellWithReuseIdentifier: "ProfileDetailsCollectionViewCell")
+    profileDetailsCollectionView.register(FollowersCollectionViewCell.self,
+                                          forCellWithReuseIdentifier: "FollowersCollectionViewCell")
+
   }
 }
 

@@ -10,6 +10,7 @@
 		02624D5F20A5D6380053399E /* FollowersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02624D5E20A5D6380053399E /* FollowersCollectionViewCell.swift */; };
 		02624D6120A5DE6D0053399E /* NutrionInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02624D6020A5DE6D0053399E /* NutrionInfoItem.swift */; };
 		02624D6620A5E9FA0053399E /* FollowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02624D6520A5E9FA0053399E /* FollowerTableViewCell.swift */; };
+		02624D6820A5ECA80053399E /* FollowerTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02624D6720A5ECA80053399E /* FollowerTableViewCellViewModel.swift */; };
 		0288D05020A468FC00110B48 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288D04F20A468FC00110B48 /* Coordinator.swift */; };
 		0288D05320A4694400110B48 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288D05220A4694400110B48 /* AppCoordinator.swift */; };
 		0288D05520A46B2700110B48 /* UserHomeControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288D05420A46B2700110B48 /* UserHomeControllerViewModel.swift */; };
@@ -41,6 +42,7 @@
 		02624D5E20A5D6380053399E /* FollowersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCollectionViewCell.swift; sourceTree = "<group>"; };
 		02624D6020A5DE6D0053399E /* NutrionInfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrionInfoItem.swift; sourceTree = "<group>"; };
 		02624D6520A5E9FA0053399E /* FollowerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCell.swift; sourceTree = "<group>"; };
+		02624D6720A5ECA80053399E /* FollowerTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		0288D04F20A468FC00110B48 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0288D05220A4694400110B48 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0288D05420A46B2700110B48 /* UserHomeControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeControllerViewModel.swift; sourceTree = "<group>"; };
@@ -105,10 +107,10 @@
 		0288D05C20A4785900110B48 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				02624D6420A5E3250053399E /* InfoItems */,
 				0288D05620A46DC400110B48 /* CurrentUser.swift */,
 				0288D05820A46FBC00110B48 /* OtherUser.swift */,
 				0288D05A20A4774E00110B48 /* SearchQueryUser.swift */,
-				02624D6420A5E3250053399E /* InfoItems */,
 				02B4899A20A59FBF0075FCEC /* CustomError.swift */,
 			);
 			path = Models;
@@ -119,6 +121,7 @@
 			children = (
 				0288D05420A46B2700110B48 /* UserHomeControllerViewModel.swift */,
 				02B489A520A5C6810075FCEC /* ProfileDetailsCollectionViewCellViewModel.swift */,
+				02624D6720A5ECA80053399E /* FollowerTableViewCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-DengunTestTask/Pods-DengunTestTask-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
@@ -377,6 +381,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -413,6 +418,7 @@
 				02B4899D20A5C2880075FCEC /* UIViewController+Extensions.swift in Sources */,
 				02B4899820A588590075FCEC /* ProfileHeaderView.swift in Sources */,
 				0288D05020A468FC00110B48 /* Coordinator.swift in Sources */,
+				02624D6820A5ECA80053399E /* FollowerTableViewCellViewModel.swift in Sources */,
 				0288D05520A46B2700110B48 /* UserHomeControllerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

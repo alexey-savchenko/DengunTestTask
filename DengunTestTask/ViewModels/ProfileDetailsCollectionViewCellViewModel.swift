@@ -32,10 +32,12 @@ class ProfileDetailsCollectionViewCellViewModel: ProfileDetailsCollectionViewCel
 class FollowersCollectionViewCellViewModel: ProfileDetailsCollectionViewCellViewModelProtocol {
   var type: ProfileDetailsCollectionViewCellViewModelType = .followers
 
-  var followersItemsObservable: Observable<[SearchQueryItem]>
+  var followersItemsObservable: Observable<[FollowerTableViewCellViewModelType]>
 
   init(itemsObservable: Observable<[SearchQueryItem]>) {
-    followersItemsObservable = itemsObservable
+    followersItemsObservable = itemsObservable.map({ (items) in
+      return items.map(FollowerTableViewCellViewModel.init)
+    })
   }
 }
 
