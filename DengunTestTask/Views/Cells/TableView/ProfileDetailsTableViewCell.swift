@@ -52,25 +52,8 @@ final class ProfileDetailsTableViewCell: UITableViewCell {
     }
   }
 
-  func configureWith(_ profileInfoItem: ProfileInfoItem) {
-    switch profileInfoItem {
-
-    case .rank(let value):
-      valueLabel.text = value
-    case .level(let value):
-      valueLabel.text = "\(value)"
-    case .points(let value):
-      valueLabel.text = "\(value)"
-    case .workouts(let value):
-      valueLabel.text = "\(value)"
-    case .trainingTime(let value):
-      valueLabel.text = value
-    case .triningSince(let value):
-      valueLabel.text = value
-    case .followers(let value):
-      valueLabel.text = "\(value)"
-    }
-
-    titleLabel.text = profileInfoItem.title
+  func configureWith(_ infoItem: InfoItem) {
+    valueLabel.text = infoItem.value
+    titleLabel.text = infoItem.title
   }
 }

@@ -8,7 +8,8 @@
 
 import Foundation
 
-enum NutritionDataItem {
+enum NutritionInfoItem: InfoItem {
+
   case goal(String)
   case weight(String)
   case dailyCaloricNeeds(Int)
@@ -33,6 +34,26 @@ enum NutritionDataItem {
       return "Fat"
     case .water:
       return "Water"
+    }
+  }
+
+  var value: String {
+    switch self {
+
+    case .goal(let value):
+      return value
+    case .weight(let value):
+      return value
+    case .dailyCaloricNeeds(let value):
+      return "\(value) kcals"
+    case .protein(let value):
+      return "\(value) g"
+    case .carbs(let value):
+      return "\(value) g"
+    case .fat(let value):
+      return "\(value) g"
+    case .water(let value):
+      return value
     }
   }
 }

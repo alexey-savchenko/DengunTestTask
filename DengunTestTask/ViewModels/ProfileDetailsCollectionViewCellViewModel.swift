@@ -43,10 +43,10 @@ class FollowersCollectionViewCellViewModel: ProfileDetailsCollectionViewCellView
 class NutritionCollectionViewCellViewModel: ProfileDetailsCollectionViewCellViewModelProtocol {
   var type: ProfileDetailsCollectionViewCellViewModelType = .nutrition
 
-  var followersItemsObservable: Observable<[NutritionDataItem]>
+  var nutritionItemsObservable: Observable<[NutritionInfoItem]>
 
-  init(itemsObservable: Observable<[NutritionDataItem]>) {
-    followersItemsObservable = itemsObservable
+  init(itemsObservable: Observable<[NutritionInfoItem]>) {
+    nutritionItemsObservable = itemsObservable
   }
 }
 

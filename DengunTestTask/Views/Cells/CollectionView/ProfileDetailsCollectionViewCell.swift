@@ -38,14 +38,42 @@ final class ProfileDetailsCollectionViewCell: UICollectionViewCell {
   }
 
   func configureWith(_ viewModel: ProfileDetailsCollectionViewCellViewModelProtocol) {
-    if let viewModel = viewModel as? ProfileDetailsCollectionViewCellViewModel {
-      viewModel.profileItemsObservable
-        .asDriver(onErrorJustReturn: []).drive(detailsTableView.rx.items) { tableView, row, model in
-          let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileDetailsTableViewCell") as! ProfileDetailsTableViewCell
-          cell.configureWith(model)
-          return cell
+    switch viewModel.type {
+    case .profileDetails:
+      if let viewModel = viewModel as? ProfileDetailsCollectionViewCellViewModel {
+        viewModel.profileItemsObservable
+          .asDriver(onErrorJustReturn: [])
+          .drive(detailsTableView.rx.items) { tableView, row, model in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileDetailsTableViewCell") as! ProfileDetailsTableViewCell
+            cell.configureWith(model)
+            return cell
+          }.disposed(by: disposeBag)
+      } else {
+        fatalError()
+      }
+    case .nutrition:
+      if let viewModel = viewModel as? NutritionCollectionViewCellViewModel {
+        viewModel.nutritionItemsObservable
+          .asDriver(onErrorJustReturn: [])
+          .drive(detailsTableView.rx.items) { tableView, row, model in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileDetailsTableViewCell") as! ProfileDetailsTableViewCell
+            cell.configureWith(model)
+            return cell
         }.disposed(by: disposeBag)
+      } else {
+        fatalError()
+      }
+    default:
+      break
     }
+//    if let viewModel = viewModel as? ProfileDetailsCollectionViewCellViewModel {
+//      viewModel.profileItemsObservable
+//        .asDriver(onErrorJustReturn: []).drive(detailsTableView.rx.items) { tableView, row, model in
+//          let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileDetailsTableViewCell") as! ProfileDetailsTableViewCell
+//          cell.configureWith(model)
+//          return cell
+//        }.disposed(by: disposeBag)
+//    }
   }
 
   override func prepareForReuse() {

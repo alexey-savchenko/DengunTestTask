@@ -54,7 +54,7 @@ final class UserHomeControllerViewModel: UserHomeControllerViewModelType {
     return Observable.just([
       ProfileDetailsCollectionViewCellViewModel(itemsObservable: currentUserData.flatMapLatest(convertUserToProfileItems)),
       ProfileDetailsCollectionViewCellViewModel(itemsObservable: currentUserData.flatMapLatest(convertUserToProfileItems)),
-      ProfileDetailsCollectionViewCellViewModel(itemsObservable: currentUserData.flatMapLatest(convertUserToProfileItems))
+      NutritionCollectionViewCellViewModel(itemsObservable: currentUserData.flatMapLatest(convertUserToNutritionItems))
       ])
   }
 
@@ -74,6 +74,24 @@ final class UserHomeControllerViewModel: UserHomeControllerViewModelType {
       resultArray.append(.trainingTime(TimeInterval(user.trainingTime).toString()))
       resultArray.append(.triningSince(user.trainingSince))
       resultArray.append(.followers(user.numFollowers))
+
+      observer.onNext(resultArray)
+      return Disposables.create()
+    }
+  }
+
+  private func convertUserToNutritionItems(_ user: CurrentUser) -> Observable<[NutritionInfoItem]> {
+    return Observable.create { observer in
+
+      var resultArray = [NutritionInfoItem]()
+
+      resultArray.append(.goal(user.nutrition.goal))
+      resultArray.append(.weight(user.nutrition.weight))
+      resultArray.append(.dailyCaloricNeeds(user.nutrition.dailyCaloricNeeds))
+      resultArray.append(.protein(user.nutrition.protein))
+      resultArray.append(.carbs(user.nutrition.carbs))
+      resultArray.append(.fat(user.nutrition.fat))
+      resultArray.append(.water("\(user.nutrition.waterMin) Lt - \(user.nutrition.waterMax) Lt"))
 
       observer.onNext(resultArray)
       return Disposables.create()

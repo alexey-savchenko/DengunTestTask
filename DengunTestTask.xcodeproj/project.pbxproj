@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		02624D5F20A5D6380053399E /* FollowersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02624D5E20A5D6380053399E /* FollowersCollectionViewCell.swift */; };
 		02624D6120A5DE6D0053399E /* NutrionDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02624D6020A5DE6D0053399E /* NutrionDataItem.swift */; };
+		02624D6320A5E11D0053399E /* NutritionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02624D6220A5E11D0053399E /* NutritionTableViewCell.swift */; };
 		0288D05020A468FC00110B48 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288D04F20A468FC00110B48 /* Coordinator.swift */; };
 		0288D05320A4694400110B48 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288D05220A4694400110B48 /* AppCoordinator.swift */; };
 		0288D05520A46B2700110B48 /* UserHomeControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288D05420A46B2700110B48 /* UserHomeControllerViewModel.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		02624D5E20A5D6380053399E /* FollowersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCollectionViewCell.swift; sourceTree = "<group>"; };
 		02624D6020A5DE6D0053399E /* NutrionDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrionDataItem.swift; sourceTree = "<group>"; };
+		02624D6220A5E11D0053399E /* NutritionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionTableViewCell.swift; sourceTree = "<group>"; };
 		0288D04F20A468FC00110B48 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0288D05220A4694400110B48 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0288D05420A46B2700110B48 /* UserHomeControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeControllerViewModel.swift; sourceTree = "<group>"; };
@@ -82,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02624D6420A5E3250053399E /* InfoItems */ = {
+			isa = PBXGroup;
+			children = (
+				02B4899320A581B40075FCEC /* ProfileInfoItem.swift */,
+				02624D6020A5DE6D0053399E /* NutrionDataItem.swift */,
+			);
+			path = InfoItems;
+			sourceTree = "<group>";
+		};
 		0288D05120A4693500110B48 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,9 +108,8 @@
 				0288D05620A46DC400110B48 /* CurrentUser.swift */,
 				0288D05820A46FBC00110B48 /* OtherUser.swift */,
 				0288D05A20A4774E00110B48 /* SearchQueryUser.swift */,
-				02B4899320A581B40075FCEC /* ProfileInfoItem.swift */,
+				02624D6420A5E3250053399E /* InfoItems */,
 				02B4899A20A59FBF0075FCEC /* CustomError.swift */,
-				02624D6020A5DE6D0053399E /* NutrionDataItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -207,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				02B489A020A5C5220075FCEC /* ProfileDetailsTableViewCell.swift */,
+				02624D6220A5E11D0053399E /* NutritionTableViewCell.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -387,6 +398,7 @@
 				02B4898D20A5761F0075FCEC /* UIColor+Extensions.swift in Sources */,
 				0288D05320A4694400110B48 /* AppCoordinator.swift in Sources */,
 				02B4899220A57EB10075FCEC /* Services.swift in Sources */,
+				02624D6320A5E11D0053399E /* NutritionTableViewCell.swift in Sources */,
 				0288D05920A46FBC00110B48 /* OtherUser.swift in Sources */,
 				02B4899B20A59FBF0075FCEC /* CustomError.swift in Sources */,
 				028E9DDD20A1F417007C244C /* UserHomeController.swift in Sources */,
@@ -541,7 +553,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N35W696BYS;
 				INFOPLIST_FILE = DengunTestTask/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = svch.DengunTestTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -557,7 +572,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N35W696BYS;
 				INFOPLIST_FILE = DengunTestTask/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = svch.DengunTestTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

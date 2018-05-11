@@ -8,7 +8,12 @@
 
 import Foundation
 
-enum ProfileInfoItem {
+protocol InfoItem {
+  var title: String { get }
+  var value: String { get }
+}
+
+enum ProfileInfoItem: InfoItem {
   case rank(String)
   case level(Int)
   case points(Int)
@@ -33,6 +38,25 @@ enum ProfileInfoItem {
       return "Training since"
     case .workouts:
       return "Workouts"
+    }
+  }
+
+  var value: String {
+    switch self {
+    case .rank(let value):
+      return value
+    case .level(let value):
+      return "\(value)"
+    case .points(let value):
+      return "\(value)"
+    case .workouts(let value):
+      return "\(value)"
+    case .trainingTime(let value):
+      return "\(value)"
+    case .triningSince(let value):
+      return value
+    case .followers(let value):
+      return "\(value)"
     }
   }
 }

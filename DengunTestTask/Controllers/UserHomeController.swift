@@ -135,7 +135,10 @@ final class UserHomeController: UIViewController {
         case .followers:
           fatalError()
         case .nutrition:
-          fatalError()
+          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileDetailsCollectionViewCell",
+                                                        for: IndexPath(row: row, section: 0)) as! ProfileDetailsCollectionViewCell
+          cell.configureWith(model)
+          return cell
         }
 
     }.disposed(by: disposeBag)
