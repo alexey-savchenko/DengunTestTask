@@ -21,21 +21,20 @@ final class UserHomeController: UIViewController {
   }
 
   // MARK: UI
-  private let userpicImageView = UIImageView()
-  private let headerBackgroundImageView = UIImageView()
+  private let headerView = ProfileHeaderView()
+  
   lazy var tabIndicatorView: TabIndicatorView = {
-    return TabIndicatorView(tabItems)
+    return TabIndicatorView(viewModel.tabItems)
   }()
 
   // MARK: Properties
-  private let tabItems = ["PROFILE", "FOLLOWERS", "NUTRION"]
   private let viewModel: UserHomeControllerViewModelType
 
   // MARK: Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    view.backgroundColor = .black
+    view.backgroundColor = UIColor.darkGray
     configureUI()
   }
 
@@ -53,6 +52,21 @@ final class UserHomeController: UIViewController {
   }
 
   private func setupHeader() {
+    setupTabIndicator()
+
+    view.addSubview(headerView)
+    headerView.snp.makeConstraints { (make) in
+      make.leading.equalToSuperview()
+      make.top.equalTo(tabIndicatorView.snp.bottom)
+      make.trailing.equalToSuperview()
+      make.height.equalTo(200)
+    }
+    headerView.usernameLabel.text = "Test"
+    headerView.userTitleLabel.text = "Test"
+    headerView.userpic = #imageLiteral(resourceName: "settings")
+  }
+
+  private func setupTabIndicator() {
     view.addSubview(tabIndicatorView)
     tabIndicatorView.snp.makeConstraints { (make) in
       make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
@@ -60,9 +74,5 @@ final class UserHomeController: UIViewController {
       make.trailing.equalToSuperview()
       make.height.equalTo(28)
     }
-  }
-
-  private func setupTabIndicator() {
-    
   }
 }

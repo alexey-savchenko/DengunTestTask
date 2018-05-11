@@ -18,7 +18,11 @@
 		028E9DDD20A1F417007C244C /* UserHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028E9DDC20A1F417007C244C /* UserHomeController.swift */; };
 		028E9DE220A1F419007C244C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028E9DE120A1F419007C244C /* Assets.xcassets */; };
 		028E9DE520A1F419007C244C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 028E9DE320A1F419007C244C /* LaunchScreen.storyboard */; };
-		02B4898D20A5761F0075FCEC /* UIColor+HEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4898C20A5761F0075FCEC /* UIColor+HEX.swift */; };
+		02B4898D20A5761F0075FCEC /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4898C20A5761F0075FCEC /* UIColor+Extensions.swift */; };
+		02B4899220A57EB10075FCEC /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4899120A57EB10075FCEC /* Services.swift */; };
+		02B4899420A581B40075FCEC /* ProfileInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4899320A581B40075FCEC /* ProfileInfoItem.swift */; };
+		02B4899620A585FF0075FCEC /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4899520A585FF0075FCEC /* TimeInterval+Extensions.swift */; };
+		02B4899820A588590075FCEC /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4899720A588590075FCEC /* ProfileHeaderView.swift */; };
 		02F23B4720A1FA1800754EBC /* user_search.json in Resources */ = {isa = PBXBuildFile; fileRef = 02F23B4420A1FA1700754EBC /* user_search.json */; };
 		02F23B4820A1FA1800754EBC /* user_profile.json in Resources */ = {isa = PBXBuildFile; fileRef = 02F23B4520A1FA1800754EBC /* user_profile.json */; };
 		02F23B4920A1FA1800754EBC /* other_user_profile.json in Resources */ = {isa = PBXBuildFile; fileRef = 02F23B4620A1FA1800754EBC /* other_user_profile.json */; };
@@ -39,7 +43,11 @@
 		028E9DE120A1F419007C244C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		028E9DE420A1F419007C244C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		028E9DE620A1F419007C244C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		02B4898C20A5761F0075FCEC /* UIColor+HEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEX.swift"; sourceTree = "<group>"; };
+		02B4898C20A5761F0075FCEC /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		02B4899120A57EB10075FCEC /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		02B4899320A581B40075FCEC /* ProfileInfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoItem.swift; sourceTree = "<group>"; };
+		02B4899520A585FF0075FCEC /* TimeInterval+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extensions.swift"; sourceTree = "<group>"; };
+		02B4899720A588590075FCEC /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		02F23B4420A1FA1700754EBC /* user_search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_search.json; sourceTree = "<group>"; };
 		02F23B4520A1FA1800754EBC /* user_profile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_profile.json; sourceTree = "<group>"; };
 		02F23B4620A1FA1800754EBC /* other_user_profile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = other_user_profile.json; sourceTree = "<group>"; };
@@ -75,6 +83,7 @@
 				0288D05620A46DC400110B48 /* CurrentUser.swift */,
 				0288D05820A46FBC00110B48 /* OtherUser.swift */,
 				0288D05A20A4774E00110B48 /* SearchQueryUser.swift */,
+				02B4899320A581B40075FCEC /* ProfileInfoItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -99,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				0288D06120A4817900110B48 /* TabIndicatorView.swift */,
+				02B4899720A588590075FCEC /* ProfileHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -143,6 +153,7 @@
 				028E9DE120A1F419007C244C /* Assets.xcassets */,
 				028E9DE320A1F419007C244C /* LaunchScreen.storyboard */,
 				028E9DE620A1F419007C244C /* Info.plist */,
+				02B4899120A57EB10075FCEC /* Services.swift */,
 			);
 			path = DengunTestTask;
 			sourceTree = "<group>";
@@ -150,7 +161,8 @@
 		02B4898E20A5762E0075FCEC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				02B4898C20A5761F0075FCEC /* UIColor+HEX.swift */,
+				02B4898C20A5761F0075FCEC /* UIColor+Extensions.swift */,
+				02B4899520A585FF0075FCEC /* TimeInterval+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -315,13 +327,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0288D06220A4817900110B48 /* TabIndicatorView.swift in Sources */,
-				02B4898D20A5761F0075FCEC /* UIColor+HEX.swift in Sources */,
+				02B4898D20A5761F0075FCEC /* UIColor+Extensions.swift in Sources */,
 				0288D05320A4694400110B48 /* AppCoordinator.swift in Sources */,
+				02B4899220A57EB10075FCEC /* Services.swift in Sources */,
 				0288D05920A46FBC00110B48 /* OtherUser.swift in Sources */,
 				028E9DDD20A1F417007C244C /* UserHomeController.swift in Sources */,
 				0288D05B20A4774E00110B48 /* SearchQueryUser.swift in Sources */,
 				0288D05720A46DC400110B48 /* CurrentUser.swift in Sources */,
+				02B4899420A581B40075FCEC /* ProfileInfoItem.swift in Sources */,
+				02B4899620A585FF0075FCEC /* TimeInterval+Extensions.swift in Sources */,
 				028E9DDB20A1F417007C244C /* AppDelegate.swift in Sources */,
+				02B4899820A588590075FCEC /* ProfileHeaderView.swift in Sources */,
 				0288D05020A468FC00110B48 /* Coordinator.swift in Sources */,
 				0288D05520A46B2700110B48 /* UserHomeControllerViewModel.swift in Sources */,
 			);

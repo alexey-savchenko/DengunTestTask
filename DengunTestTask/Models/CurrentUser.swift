@@ -14,7 +14,7 @@ struct CurrentUser: Codable {
   let id, numFollowers: Int
   let rankLabel: String
   let trainingTime: Int
-  let city, fullName: String
+  let city, fullName, trainingSince: String
   let nutrition: Nutrition
 
   enum CodingKeys: String, CodingKey {
@@ -24,6 +24,7 @@ struct CurrentUser: Codable {
     case trainingTime = "training_time"
     case city
     case fullName = "full_name"
+    case trainingSince = "training_since"
     case nutrition
   }
 }
@@ -37,7 +38,7 @@ struct Nutrition: Codable {
   let user: Int
   let weight: String
   let carbs: Int
-  let goalLabel, trainingSince: String
+  let goalLabel: String
 
   enum CodingKeys: String, CodingKey {
     case waterMax = "water_max"
@@ -46,6 +47,5 @@ struct Nutrition: Codable {
     case waterMin = "water_min"
     case user, weight, carbs
     case goalLabel = "goal_label"
-    case trainingSince = "training_since"
   }
 }

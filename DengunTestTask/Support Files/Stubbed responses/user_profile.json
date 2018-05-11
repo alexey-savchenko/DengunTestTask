@@ -10,6 +10,7 @@
     "training_time" : 3237,
     "city" : "Olhao",
     "full_name" : "Test User",
+    "training_since" : "2018-01-11",
     "nutrition" : {
       "water_max" : "1.60",
       "daily_caloric_needs" : 1950,
@@ -21,7 +22,6 @@
       "user" : 319,
       "weight" : "50.0",
       "carbs" : 265,
-      "goal_label" : "Weight Maintenance",
-    "training_since" : "2018-01-11"
+      "goal_label" : "Weight Maintenance"
   }
 }

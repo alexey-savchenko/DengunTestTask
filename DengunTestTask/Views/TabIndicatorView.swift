@@ -42,7 +42,7 @@ class TabIndicatorView: UIView {
     itemLabels = items.enumerated().map { idx, item in
       let label = UILabel()
       label.text = item
-      label.font = UIFont.systemFont(ofSize: 14)
+      label.font = UIFont.systemFont(ofSize: 12)
       label.textColor = .white
       label.textAlignment = .center
       label.backgroundColor = .clear
@@ -78,11 +78,11 @@ class TabIndicatorView: UIView {
     }
     sendSubview(toBack: tabSelectionMarkerView)
     tabSelectionMarkerView.layer.backgroundColor = UIColor(hexString: "189e02").cgColor
-    tabSelectionMarkerView.layer.setAffineTransform(shearTransform(x: 0.5, y: 0))
+    tabSelectionMarkerView.layer.setAffineTransform(shearTransform(CGAffineTransform(scaleX: 1.1, y: 1), x: 0.5, y: 0))
   }
 
-  private func shearTransform(x: CGFloat, y: CGFloat) -> CGAffineTransform {
-    var transform = CGAffineTransform(scaleX: 1.1, y: 1)
+  private func shearTransform(_ transform: CGAffineTransform, x: CGFloat, y: CGFloat) -> CGAffineTransform {
+    var transform = transform
     transform.c = -x
     transform.b = y
     return transform
@@ -95,9 +95,15 @@ class TabIndicatorView: UIView {
   }
 
   private func selectedItem(at index: Int) {
+    itemLabels.forEach(resetFontOnLabel)
+    let targetLabel = itemLabels[index]
+    targetLabel.font = UIFont.boldSystemFont(ofSize: 12)
     UIView.animate(withDuration: 0.2) {
-      self.tabSelectionMarkerView.center = self.itemLabels[index].center
+      self.tabSelectionMarkerView.center = targetLabel.center
     }
+  }
 
+  private func resetFontOnLabel(_ label: UILabel) {
+    label.font = UIFont.systemFont(ofSize: 12)
   }
 }

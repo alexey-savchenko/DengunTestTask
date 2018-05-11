@@ -22,7 +22,7 @@ final class AppCoordinator: Coordinator {
   var childCoordinators = [Coordinator]()
 
   func start() {
-    let userHomeControllerViewModel = UserHomeControllerViewModel()
+    let userHomeControllerViewModel = UserHomeControllerViewModel(MockFetchService())
     let userHomeController = UserHomeController(userHomeControllerViewModel)
     navigationController.setViewControllers([userHomeController], animated: false)
   }
