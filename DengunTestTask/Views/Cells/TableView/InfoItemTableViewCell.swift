@@ -1,5 +1,5 @@
 //
-//  ProfileDetailsTableViewCell.swift
+//  InfoItemTableViewCell.swift
 //  DengunTestTask
 //
 //  Created by Alexey Savchenko on 11.05.2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ProfileDetailsTableViewCell: UITableViewCell {
+final class InfoItemTableViewCell: UITableViewCell {
 
   private let titleLabel = UILabel()
   private let valueLabel = UILabel()

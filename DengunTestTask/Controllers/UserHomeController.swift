@@ -125,7 +125,6 @@ final class UserHomeController: UIViewController {
     viewModel.profileItemsData
       .asDriver(onErrorJustReturn: [])
       .drive(profileDetailsCollectionView.rx.items) { collectionView, row, model in
-
         switch model.type {
         case .profileDetails:
           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileDetailsCollectionViewCell",

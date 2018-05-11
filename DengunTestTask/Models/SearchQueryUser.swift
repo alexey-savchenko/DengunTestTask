@@ -7,27 +7,22 @@
 //
 
 import Foundation
+import SwiftyJSON
 
-struct SearchQueryItem: Codable {
+struct SearchQueryItem {
   let id, friendRequestType: Int
-  let friend: Friend
-
-  enum CodingKeys: String, CodingKey {
-    case id
-    case friendRequestType = "friend_request_type"
-    case friend
-  }
+  let countryName, city, name: String
+  let fullName, photo: String
 }
 
-struct Friend: Codable {
-  let countryName, city, name: String
-  let id: Int
-  let fullName, photo: String
-
-  enum CodingKeys: String, CodingKey {
-    case countryName = "country_name"
-    case city, name, id
-    case fullName = "full_name"
-    case photo
+extension SearchQueryItem {
+  init?(_ json: JSON) {
+    id = json["id"].intValue
+    friendRequestType = json["friend_request_type"].intValue
+    countryName = json["friend"]["country_name"].stringValue
+    city = json["friend"]["city"].stringValue
+    name = json["friend"]["name"].stringValue
+    fullName = json["friend"]["full_name"].stringValue
+    photo = json["friend"]["photo"].stringValue
   }
 }

@@ -23,7 +23,7 @@ final class ProfileDetailsCollectionViewCell: UICollectionViewCell {
     }
 
     contentView.addSubview(detailsTableView)
-    detailsTableView.register(ProfileDetailsTableViewCell.self, forCellReuseIdentifier: "ProfileDetailsTableViewCell")
+    detailsTableView.register(InfoItemTableViewCell.self, forCellReuseIdentifier: "InfoItemTableViewCell")
     detailsTableView.snp.makeConstraints { (make) in
       make.edges.equalToSuperview()
     }
@@ -44,7 +44,7 @@ final class ProfileDetailsCollectionViewCell: UICollectionViewCell {
         viewModel.profileItemsObservable
           .asDriver(onErrorJustReturn: [])
           .drive(detailsTableView.rx.items) { tableView, row, model in
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileDetailsTableViewCell") as! ProfileDetailsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoItemTableViewCell") as! InfoItemTableViewCell
             cell.configureWith(model)
             return cell
           }.disposed(by: disposeBag)
@@ -56,7 +56,7 @@ final class ProfileDetailsCollectionViewCell: UICollectionViewCell {
         viewModel.nutritionItemsObservable
           .asDriver(onErrorJustReturn: [])
           .drive(detailsTableView.rx.items) { tableView, row, model in
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileDetailsTableViewCell") as! ProfileDetailsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoItemTableViewCell") as! InfoItemTableViewCell
             cell.configureWith(model)
             return cell
         }.disposed(by: disposeBag)
@@ -66,14 +66,6 @@ final class ProfileDetailsCollectionViewCell: UICollectionViewCell {
     default:
       break
     }
-//    if let viewModel = viewModel as? ProfileDetailsCollectionViewCellViewModel {
-//      viewModel.profileItemsObservable
-//        .asDriver(onErrorJustReturn: []).drive(detailsTableView.rx.items) { tableView, row, model in
-//          let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileDetailsTableViewCell") as! ProfileDetailsTableViewCell
-//          cell.configureWith(model)
-//          return cell
-//        }.disposed(by: disposeBag)
-//    }
   }
 
   override func prepareForReuse() {

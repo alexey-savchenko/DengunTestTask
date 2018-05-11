@@ -34,7 +34,7 @@ final class UserHomeControllerViewModel: UserHomeControllerViewModelType {
       .disposed(by: disposeBag)
   }
 
-  // Properties
+  // MARK: Properties
   private let service: FetchService
   private let disposeBag = DisposeBag()
   lazy var userpicSubject: BehaviorSubject<UIImage> = {
@@ -53,7 +53,7 @@ final class UserHomeControllerViewModel: UserHomeControllerViewModelType {
   var profileItemsData: Observable<[ProfileDetailsCollectionViewCellViewModelProtocol]> {
     return Observable.just([
       ProfileDetailsCollectionViewCellViewModel(itemsObservable: currentUserData.flatMapLatest(convertUserToProfileItems)),
-      ProfileDetailsCollectionViewCellViewModel(itemsObservable: currentUserData.flatMapLatest(convertUserToProfileItems)),
+      FollowersCollectionViewCellViewModel(itemsObservable: service.getFollowers()),
       NutritionCollectionViewCellViewModel(itemsObservable: currentUserData.flatMapLatest(convertUserToNutritionItems))
       ])
   }
@@ -63,6 +63,7 @@ final class UserHomeControllerViewModel: UserHomeControllerViewModelType {
   // Inputs
   var userpicSelected = PublishSubject<UIImage>()
 
+  // MARK: Functions
   private func convertUserToProfileItems(_ user: CurrentUser) -> Observable<[ProfileInfoItem]> {
     return Observable.create { observer in
       var resultArray = [ProfileInfoItem]()

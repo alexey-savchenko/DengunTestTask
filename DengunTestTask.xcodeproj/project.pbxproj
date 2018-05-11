@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		02624D5F20A5D6380053399E /* FollowersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02624D5E20A5D6380053399E /* FollowersCollectionViewCell.swift */; };
-		02624D6120A5DE6D0053399E /* NutrionDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02624D6020A5DE6D0053399E /* NutrionDataItem.swift */; };
-		02624D6320A5E11D0053399E /* NutritionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02624D6220A5E11D0053399E /* NutritionTableViewCell.swift */; };
+		02624D6120A5DE6D0053399E /* NutrionInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02624D6020A5DE6D0053399E /* NutrionInfoItem.swift */; };
+		02624D6620A5E9FA0053399E /* FollowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02624D6520A5E9FA0053399E /* FollowerTableViewCell.swift */; };
 		0288D05020A468FC00110B48 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288D04F20A468FC00110B48 /* Coordinator.swift */; };
 		0288D05320A4694400110B48 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288D05220A4694400110B48 /* AppCoordinator.swift */; };
 		0288D05520A46B2700110B48 /* UserHomeControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288D05420A46B2700110B48 /* UserHomeControllerViewModel.swift */; };
@@ -29,7 +29,7 @@
 		02B4899B20A59FBF0075FCEC /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4899A20A59FBF0075FCEC /* CustomError.swift */; };
 		02B4899D20A5C2880075FCEC /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4899C20A5C2880075FCEC /* UIViewController+Extensions.swift */; };
 		02B4899F20A5C47E0075FCEC /* ProfileDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4899E20A5C47E0075FCEC /* ProfileDetailsCollectionViewCell.swift */; };
-		02B489A120A5C5220075FCEC /* ProfileDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B489A020A5C5220075FCEC /* ProfileDetailsTableViewCell.swift */; };
+		02B489A120A5C5220075FCEC /* InfoItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B489A020A5C5220075FCEC /* InfoItemTableViewCell.swift */; };
 		02B489A620A5C6810075FCEC /* ProfileDetailsCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B489A520A5C6810075FCEC /* ProfileDetailsCollectionViewCellViewModel.swift */; };
 		02F23B4720A1FA1800754EBC /* user_search.json in Resources */ = {isa = PBXBuildFile; fileRef = 02F23B4420A1FA1700754EBC /* user_search.json */; };
 		02F23B4820A1FA1800754EBC /* user_profile.json in Resources */ = {isa = PBXBuildFile; fileRef = 02F23B4520A1FA1800754EBC /* user_profile.json */; };
@@ -39,8 +39,8 @@
 
 /* Begin PBXFileReference section */
 		02624D5E20A5D6380053399E /* FollowersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCollectionViewCell.swift; sourceTree = "<group>"; };
-		02624D6020A5DE6D0053399E /* NutrionDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrionDataItem.swift; sourceTree = "<group>"; };
-		02624D6220A5E11D0053399E /* NutritionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionTableViewCell.swift; sourceTree = "<group>"; };
+		02624D6020A5DE6D0053399E /* NutrionInfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrionInfoItem.swift; sourceTree = "<group>"; };
+		02624D6520A5E9FA0053399E /* FollowerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCell.swift; sourceTree = "<group>"; };
 		0288D04F20A468FC00110B48 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0288D05220A4694400110B48 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0288D05420A46B2700110B48 /* UserHomeControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeControllerViewModel.swift; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 		02B4899A20A59FBF0075FCEC /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		02B4899C20A5C2880075FCEC /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		02B4899E20A5C47E0075FCEC /* ProfileDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
-		02B489A020A5C5220075FCEC /* ProfileDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		02B489A020A5C5220075FCEC /* InfoItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoItemTableViewCell.swift; sourceTree = "<group>"; };
 		02B489A520A5C6810075FCEC /* ProfileDetailsCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		02F23B4420A1FA1700754EBC /* user_search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_search.json; sourceTree = "<group>"; };
 		02F23B4520A1FA1800754EBC /* user_profile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_profile.json; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				02B4899320A581B40075FCEC /* ProfileInfoItem.swift */,
-				02624D6020A5DE6D0053399E /* NutrionDataItem.swift */,
+				02624D6020A5DE6D0053399E /* NutrionInfoItem.swift */,
 			);
 			path = InfoItems;
 			sourceTree = "<group>";
@@ -216,8 +216,8 @@
 		02B489A320A5C52D0075FCEC /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				02B489A020A5C5220075FCEC /* ProfileDetailsTableViewCell.swift */,
-				02624D6220A5E11D0053399E /* NutritionTableViewCell.swift */,
+				02B489A020A5C5220075FCEC /* InfoItemTableViewCell.swift */,
+				02624D6520A5E9FA0053399E /* FollowerTableViewCell.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -394,22 +394,22 @@
 			files = (
 				0288D06220A4817900110B48 /* TabIndicatorView.swift in Sources */,
 				02B4899F20A5C47E0075FCEC /* ProfileDetailsCollectionViewCell.swift in Sources */,
-				02B489A120A5C5220075FCEC /* ProfileDetailsTableViewCell.swift in Sources */,
+				02B489A120A5C5220075FCEC /* InfoItemTableViewCell.swift in Sources */,
 				02B4898D20A5761F0075FCEC /* UIColor+Extensions.swift in Sources */,
 				0288D05320A4694400110B48 /* AppCoordinator.swift in Sources */,
 				02B4899220A57EB10075FCEC /* Services.swift in Sources */,
-				02624D6320A5E11D0053399E /* NutritionTableViewCell.swift in Sources */,
 				0288D05920A46FBC00110B48 /* OtherUser.swift in Sources */,
 				02B4899B20A59FBF0075FCEC /* CustomError.swift in Sources */,
 				028E9DDD20A1F417007C244C /* UserHomeController.swift in Sources */,
 				0288D05B20A4774E00110B48 /* SearchQueryUser.swift in Sources */,
-				02624D6120A5DE6D0053399E /* NutrionDataItem.swift in Sources */,
+				02624D6120A5DE6D0053399E /* NutrionInfoItem.swift in Sources */,
 				02B489A620A5C6810075FCEC /* ProfileDetailsCollectionViewCellViewModel.swift in Sources */,
 				0288D05720A46DC400110B48 /* CurrentUser.swift in Sources */,
 				02624D5F20A5D6380053399E /* FollowersCollectionViewCell.swift in Sources */,
 				02B4899420A581B40075FCEC /* ProfileInfoItem.swift in Sources */,
 				02B4899620A585FF0075FCEC /* TimeInterval+Extensions.swift in Sources */,
 				028E9DDB20A1F417007C244C /* AppDelegate.swift in Sources */,
+				02624D6620A5E9FA0053399E /* FollowerTableViewCell.swift in Sources */,
 				02B4899D20A5C2880075FCEC /* UIViewController+Extensions.swift in Sources */,
 				02B4899820A588590075FCEC /* ProfileHeaderView.swift in Sources */,
 				0288D05020A468FC00110B48 /* Coordinator.swift in Sources */,

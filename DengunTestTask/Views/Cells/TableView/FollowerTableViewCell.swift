@@ -1,5 +1,5 @@
 //
-//  NutritionTableViewCell.swift
+//  FollowerTableViewCell.swift
 //  DengunTestTask
 //
 //  Created by Alexey Savchenko on 11.05.2018.
@@ -8,6 +8,9 @@
 
 import UIKit
 
-class NutritionTableViewCell: UITableViewCell {
+class FollowerTableViewCell: UITableViewCell {
   
+  override func layoutSubviews() {
+    super.layoutSubviews()
+  }
 }

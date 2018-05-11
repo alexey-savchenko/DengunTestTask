@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import SwiftyJSON
 
 protocol FetchService {
   func getCurrentUser() -> Observable<CurrentUser>
@@ -37,7 +38,15 @@ class MockFetchService: FetchService {
   func getFollowers() -> Observable<[SearchQueryItem]> {
     return Observable.create { observer in
 
-      
+      if let jsonURL = Bundle.main.url(forResource: "user_profile", withExtension: "json", subdirectory: nil, localization: nil),
+        let jsonData = try? Data(contentsOf: jsonURL),
+        let json = try? JSON(data: jsonData) {
+
+        let usersArray = json["data"].arrayValue
+        let items = usersArray.compactMap(SearchQueryItem.init)
+
+        observer.onNext(items)
+      }
 
       return Disposables.create()
     }

@@ -17,7 +17,6 @@ enum ProfileDetailsCollectionViewCellViewModelType {
 
 protocol ProfileDetailsCollectionViewCellViewModelProtocol {
   var type: ProfileDetailsCollectionViewCellViewModelType { get }
-//  var profileItemsObservable: Observable<[ProfileInfoItem]> { get }
 }
 
 class ProfileDetailsCollectionViewCellViewModel: ProfileDetailsCollectionViewCellViewModelProtocol {
